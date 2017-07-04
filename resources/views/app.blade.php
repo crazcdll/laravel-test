@@ -7,10 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- stylesheets -->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="{{ asset('css/bootstrap-3.3.7.min.css') }}" rel="stylesheet">
 </head>
 <body>
-@yield('content')
+
+<div class="container">
+    @yield('content')
+</div>
+@yield('footer')
 </body>
 </html>
