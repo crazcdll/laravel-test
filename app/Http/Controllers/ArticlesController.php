@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Http\Requests\createArticleRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,8 @@ class ArticlesController extends Controller
         return view('articles.create');
     }
 
+//    验证的两种方式
+//    public function store(createArticleRequest $request)
     public function store(Request $request)
     {
 //        dd($request->all());
@@ -40,6 +43,7 @@ class ArticlesController extends Controller
 //        存入数据库
 //        重定向
 //        $input['published_at']=Carbon::now();
+        $this->validate($request, ['title'=>'required|min:3','content'=>'required']);
         Article::create($request->all());
         return redirect('/articles');
     }
