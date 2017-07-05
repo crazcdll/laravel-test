@@ -7,5 +7,4 @@
             {{ $article->content }}
         </div>
     </article>
-
 @endsection

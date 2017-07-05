@@ -23,10 +23,15 @@ class createArticleRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title'=>'required|min:3',
-            'content'=>'required',
-            'published_at'=>'required'
+        $rules = [
+            'title' => 'required|min:3',
+            'content' => 'required',
+            'published_at' => 'required'
         ];
+
+//        if (isEdit()) {
+//            $rules['something'] = 'required';
+//        }
+        return $rules;
     }
 }

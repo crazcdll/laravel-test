@@ -25,7 +25,7 @@ class ArticlesController extends Controller
 //        if (is_null($article)){
 //            abort(404);
 //        }
-        dd($article->created_at->diffForHumans());
+//        dd($article->created_at->diffForHumans());
         return view('articles.show', compact('article'));
     }
 
@@ -46,5 +46,19 @@ class ArticlesController extends Controller
         $this->validate($request, ['title'=>'required|min:3','content'=>'required']);
         Article::create($request->all());
         return redirect('/articles');
+    }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
+    }
+
+    public function update(createArticleRequest $request, $id)
+    {
+          $article = Article::findOrFail($id);
+          $article->update($request->all());
+          
+          return redirect('/articles');
     }
 }
