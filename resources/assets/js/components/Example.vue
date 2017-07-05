@@ -10,6 +10,10 @@
                         npm run watch
                         id
                     </div>
+                    <div>
+                        <button class="btn btn-primary" v-on:click="click">请求</button>
+                        <button class="btn btn-primary" v-on:click="toast">toast</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -20,6 +24,22 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        methods: {
+            click(){
+                console.log(123);
+                axios.get('http://localhost:8899/about', {
+//                axios.get('https://www.baidu.com/s', {
+                    params:{
+                        wd: 123
+                    }
+                }).then(response =>{
+                    console.log(response.data);
+                })
+            },
+            toast(){
+                this.$toast('Hello world!');
+            }
         }
     }
 </script>

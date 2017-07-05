@@ -8,6 +8,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.Mint = require('mint-ui')
+window.VueRouter = require('vue-router')
+window.vuex = require('vuex')
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
