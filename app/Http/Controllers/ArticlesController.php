@@ -44,7 +44,8 @@ class ArticlesController extends Controller
 //        重定向
 //        $input['published_at']=Carbon::now();
         $this->validate($request, ['title'=>'required|min:3','content'=>'required']);
-        Article::create($request->all());
+        Article::create(array_merge(['user_id' => \Auth::user()->id], $request->all()));
+//        Article::create($request->all());
         return redirect('/articles');
     }
 
