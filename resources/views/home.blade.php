@@ -14,5 +14,7 @@
             </div>
         </div>
     </div>
-    <example></example>
+    <div id="app">
+        <example></example>
+    </div>
 @endsection

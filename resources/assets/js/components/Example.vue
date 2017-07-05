@@ -7,6 +7,8 @@
 
                     <div class="panel-body">
                         I'm an example component!
+                        npm run watch
+                        id
                     </div>
                 </div>
             </div>
